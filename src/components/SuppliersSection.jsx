@@ -4,53 +4,17 @@ const suppliers = [
   {
     id: 1,
     name: "الشركة الوطنية",
-    category: "السكروالسلاح",
+    category: "السكروالملح",
     products: "+1300 منتج",
     rating: 4.7,
     reviews: 110,
     logo: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=150&q=80",
   },
-  {
-    id: 2,
-    name: "المصرية للكتاب والتوزيع",
-    category: "المواد الغذائية",
-    products: "+800 منتج",
-    rating: 4.6,
-    reviews: 75,
-    logo: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=150&q=80",
-  },
-  {
-    id: 3,
-    name: "دلتا فودز",
-    category: "المواد الغذائية",
-    products: "+1500 منتج",
-    rating: 4.9,
-    reviews: 270,
-    logo: "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=150&q=80",
-  },
-  {
-    id: 4,
-    name: "شركة الزهراء",
-    category: "الزيوت والمواد",
-    products: "+950 منتج",
-    rating: 4.7,
-    reviews: 340,
-    logo: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=150&q=80",
-  },
-  {
-    id: 5,
-    name: "شركة البركان للمواد الغذائية",
-    category: "المواد الغذائية",
-    products: "+1200 منتج",
-    rating: 4.8,
-    reviews: 250,
-    logo: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
-  },
 ];
 
 export default function SuppliersSection() {
   return (
-    <section className="w-full font-cairo py-8 px-4 md:px-12">
+    <section className="w-full font-cairo py-8 px-4 md:px-12 ">
       <div className="max-w-7xl mx-auto">
         {/* العنوان وعرض الكل */}
         <div className="flex items-center justify-between mb-6">
@@ -71,7 +35,7 @@ export default function SuppliersSection() {
               className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition"
             >
               {/* اللوجو */}
-              <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border border-gray-100 p-1 bg-gray-50">
+              <div className="w-25 h-25 mx-auto mb-3 rounded-full overflow-hidden border border-gray-100 p-1 bg-gray-50">
                 <img
                   src={sup.logo}
                   alt={sup.name}
