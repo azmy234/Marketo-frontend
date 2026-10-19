@@ -67,7 +67,7 @@ export default function NewArrivalsSection() {
     <section dir="rtl" className="w-full font-cairo py-6 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg md:text-xl font-extrabold text-brand-dark flex items-center gap-2">
             <span className="w-1.5 h-6 bg-brand-gold rounded-full inline-block" />
             وصل حديثاً

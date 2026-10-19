@@ -17,7 +17,7 @@ export default function SuppliersSection() {
     <section className="w-full font-cairo py-8 px-4 md:px-12 ">
       <div className="max-w-7xl mx-auto">
         {/* العنوان وعرض الكل */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-brand-dark flex items-center gap-2">
             <span className="w-2 h-6 bg-brand-gold rounded-full inline-block"></span>
             الموردون المميزون

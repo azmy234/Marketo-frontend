@@ -2,7 +2,7 @@ import { Users, Package, ShieldCheck, ArrowLeft } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="w-full font-cairo py-6 dir-rtl">
+    <section className="w-full font-cairo  dir-rtl">
       {/* البانر الرئيسي بعرض الشاشة بالكامل مع تدرج نصف ونصف */}
       <div className="w-full relative transition-opacity overflow-hidden shadow-lg min-h-105 md:min-h-120 flex items-center ">
         {/* صورة الخلفية الكاملة */}
