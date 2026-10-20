@@ -1,5 +1,6 @@
 import { ArrowLeft, ShoppingCart, Star, Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -110,14 +111,16 @@ export default function NewArrivalsSection() {
                 </button>
 
                 {/* Product Image */}
-                <div className="w-full h-28 my-1 overflow-hidden rounded-lg flex items-center justify-center bg-[#F8F1E7]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+                <Link to="/ProductDetails">
+                  <div className="w-full h-28 my-1 overflow-hidden rounded-lg flex items-center justify-center bg-[#F8F1E7]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
 
                 {/* Product Details */}
                 <div>

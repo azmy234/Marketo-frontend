@@ -5,8 +5,9 @@
 
   /* ألوان مشروع MARKETO */
   --color-brand-dark: #1e382b;
+  --color-brand-green: #1a6649;
   --color-brand-gold: #cba158;
-  --color-brand-bg: #f8f6f0;
+  --color-brand-bg: #fbfaf7;
 }
 
 /* تطبيق الخط والاتجاه افتراضياً على كل العناصر */

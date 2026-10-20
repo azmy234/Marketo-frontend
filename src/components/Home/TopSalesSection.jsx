@@ -1,5 +1,6 @@
 import { ArrowLeft, ShoppingCart, Star, Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -107,15 +108,17 @@ export default function TopSalesSection() {
                   <Star size={16} fill={isFavorite ? "currentColor" : "none"} />
                 </button>
 
-                {/* Product Image */}
-                <div className="w-full h-32 my-2 overflow-hidden rounded-lg flex items-center justify-center bg-[#F8F1E7]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+                <Link to="/ProductDetails">
+                  {/* Product Image */}
+                  <div className="w-full h-32 my-2 overflow-hidden rounded-lg flex items-center justify-center bg-[#F8F1E7]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
 
                 {/* Product Details */}
                 <div>

@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+
 import Home from "./components/Home/Home";
 import Navbar from "./components/Home/Navbar";
 import Footer from "./components/Home/Footer";
+
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import ForgotPassword from "./components/Auth/ForgotPassword";
+
+import ProductDetails from "./components/Products/ProductDetails";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +41,7 @@ function AppContent() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/ProductDetails" element={<ProductDetails />} />
       </Routes>
 
       {/* يظهر الفوتر فقط في غير صفحات المصادقة */}
