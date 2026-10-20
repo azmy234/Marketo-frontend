@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+
 import {
   Search,
   ShoppingCart,
-  User,
   Menu,
   Phone,
   Headphones,
   Wallet,
   ChevronDown,
   X,
+  UserPlus,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [showHeader, setShowHeader] = useState(true);
@@ -89,7 +91,7 @@ export default function Navbar() {
       {/* 2. باقي الهيدر المتحرك */}
       <header
         className={`fixed top-7.25 md:top-8.25 left-0 z-40 w-full font-cairo bg-white shadow-sm border-b border-gray-100 transition-transform duration-300 ease-in-out ${
-          showHeader ? "translate-y-0" : "translate-y-[-200%]"
+          showHeader ? "translate-y-0" : "translate-y-[-110%]"
         }`}
       >
         {/* Main Header */}
@@ -169,7 +171,14 @@ export default function Navbar() {
               </div>
             </button>
 
-            <button
+            <Link
+              to="/login"
+              className="inline-flex items-center gap-1.5 rounded-md bg-brand-gold px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark"
+            >
+              <UserPlus size={14} />
+              <span>LogIn</span>
+            </Link>
+            {/* <button
               type="button"
               aria-label="حسابي"
               className="flex items-center gap-2 p-1"
@@ -181,7 +190,7 @@ export default function Navbar() {
                 <span className="text-gray-500">تسجيل الدخول</span>
                 <span className="font-bold text-brand-dark">حسابي</span>
               </div>
-            </button>
+            </button> */}
           </div>
         </div>
 
