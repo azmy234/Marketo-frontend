@@ -32,7 +32,7 @@ export default function ProductDetails() {
             {/* قسم عرض الصور (جهة اليسار) */}
             <div className="lg:col-span-5 space-y-4">
               {/* حاوية الصورة الكبيرة داخل إطار مميز */}
-              <div className="w-full h-[380px] md:h-[420px] rounded-2xl bg-[#e6dfcc] border border-[#d8cfb7] p-4 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-95 md:h-105 rounded-2xl bg-[#e6dfcc] border border-[#d8cfb7] p-4 flex items-center justify-center overflow-hidden">
                 <img
                   src={productImages[selectedImage]}
                   alt="El arosa tea"
