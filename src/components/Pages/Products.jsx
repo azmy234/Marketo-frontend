@@ -194,7 +194,7 @@ const allProducts = [
       "https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=300&q=80",
   },
 
-  // --- قسم السياسة والحبوب (البقوليات) ---
+  // --- قسم البقوليات والحبوب (البقوليات) ---
   {
     id: 21,
     title: "أرز فاخر 5 كجم",
@@ -204,7 +204,7 @@ const allProducts = [
     oldPrice: 320.0,
     discount: "-10%",
     moq: "1 كرتونة : MOQ",
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80",
   },
@@ -213,7 +213,7 @@ const allProducts = [
     title: "أرز الضحى مصري 1 كجم",
     supplier: "الضحى",
     price: 38.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80",
   },
@@ -222,7 +222,7 @@ const allProducts = [
     title: "مكرونة الملكة قلم 400 جم",
     supplier: "الملكة",
     price: 22.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1551462106-cc2fb6588f3a?auto=format&fit=crop&w=300&q=80",
   },
@@ -231,7 +231,7 @@ const allProducts = [
     title: "مكرونة حورية اسباجتي 1 كجم",
     supplier: "حورية",
     price: 48.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1551462106-cc2fb6588f3a?auto=format&fit=crop&w=300&q=80",
   },
@@ -240,7 +240,7 @@ const allProducts = [
     title: "عدس مجروش تركي 500 جم",
     supplier: "الرواد",
     price: 40.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=300&q=80",
   },
@@ -249,7 +249,7 @@ const allProducts = [
     title: "فول حصى للتدميس 1 كجم",
     supplier: "الأصالة",
     price: 65.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=300&q=80",
   },
@@ -258,7 +258,7 @@ const allProducts = [
     title: "لوبيا رفاعي بيضاء 500 جم",
     supplier: "رفاعي",
     price: 55.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=300&q=80",
   },
@@ -267,7 +267,7 @@ const allProducts = [
     title: "فاصوليا حمراء 500 جم",
     supplier: "الضحى",
     price: 60.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=300&q=80",
   },
@@ -276,7 +276,7 @@ const allProducts = [
     title: "دقيق أبيض فاخر للمخبوزات 1 كجم",
     supplier: "المطاحن المصرية",
     price: 25.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=300&q=80",
   },
@@ -285,7 +285,7 @@ const allProducts = [
     title: "شعرية الملكة 400 جم",
     supplier: "الملكة",
     price: 22.0,
-    category: "السياسة والحبوب",
+    category: "البقوليات والحبوب",
     image:
       "https://images.unsplash.com/photo-1551462106-cc2fb6588f3a?auto=format&fit=crop&w=300&q=80",
   },

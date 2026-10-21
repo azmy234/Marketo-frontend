@@ -25,7 +25,7 @@ export default function Login() {
             Don't have an account?{" "}
             <Link
               to="/signup"
-              className="text-[#1a6649] font-semibold hover:underline"
+              className="text-brand-green font-semibold hover:underline"
             >
               Signup
             </Link>
@@ -96,7 +96,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full h-11 px-3.5 rounded-xl border border-gray-200 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#1a6649] focus:ring-1 focus:ring-[#1a6649] transition-all"
+              className="w-full h-11 px-3.5 rounded-xl border border-gray-200 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all"
               required
             />
           </div>
@@ -112,7 +112,7 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="w-full h-11 pl-3.5 pr-10 rounded-xl border border-gray-200 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#1a6649] focus:ring-1 focus:ring-[#1a6649] transition-all"
+                className="w-full h-11 pl-3.5 pr-10 rounded-xl border border-gray-200 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all"
                 required
               />
               <button
@@ -129,7 +129,7 @@ export default function Login() {
           <div className="text-right pt-1">
             <Link
               to="/ForgotPassword"
-              className="text-xs font-semibold text-[#1a6649] hover:underline"
+              className="text-xs font-semibold text-brand-green hover:underline"
             >
               ?Forgot password
             </Link>
@@ -138,7 +138,7 @@ export default function Login() {
           {/* زر تسجيل الدخول الأخضر */}
           <button
             type="submit"
-            className="w-full h-11 mt-2 bg-[#1a6649] hover:bg-[#14523a] text-white font-semibold text-sm rounded-xl transition-colors shadow-sm"
+            className="w-full h-11 mt-2 bg-brand-green hover:bg-[#14523a] text-white font-semibold text-sm rounded-xl transition-colors shadow-sm"
           >
             Login
           </button>

@@ -25,7 +25,7 @@ export default function Signup() {
 
   return (
     <div
-      className="w-full min-h-[calc(100vh-160px)] flex items-center justify-center bg-[#fbfaf7] py-12 px-4 font-sans text-left"
+      className="w-full min-h-[calc(100vh-160px)] flex items-center justify-center bg-brand-bg py-12 px-4 font-sans text-left"
       dir="ltr"
     >
       {/* Main Card */}
@@ -39,7 +39,7 @@ export default function Signup() {
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-[#1a6649] font-semibold hover:underline"
+              className="text-brand-green font-semibold hover:underline"
             >
               Login
             </Link>
@@ -102,7 +102,7 @@ export default function Signup() {
                 placeholder="John"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#1a6649]/20 focus:border-[#1a6649] outline-none transition"
+                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-brand-green/20 focus:border-brand-green outline-none transition"
                 required
               />
             </div>
@@ -120,7 +120,7 @@ export default function Signup() {
                 placeholder="Doe"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#1a6649]/20 focus:border-[#1a6649] outline-none transition"
+                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-brand-green/20 focus:border-brand-green outline-none transition"
                 required
               />
             </div>
@@ -141,7 +141,7 @@ export default function Signup() {
               placeholder="you@example.com"
               value={formData.email}
               onChange={handleChange}
-              className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#1a6649]/20 focus:border-[#1a6649] outline-none transition"
+              className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-brand-green/20 focus:border-brand-green outline-none transition"
               required
             />
           </div>
@@ -162,7 +162,7 @@ export default function Signup() {
                 placeholder="Min. 8 characters"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#1a6649]/20 focus:border-[#1a6649] outline-none transition pr-11"
+                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-brand-green/20 focus:border-brand-green outline-none transition pr-11"
                 required
               />
               <button
@@ -191,7 +191,7 @@ export default function Signup() {
                 placeholder="Repeat your password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#1a6649]/20 focus:border-[#1a6649] outline-none transition pr-11"
+                className="w-full py-2.5 px-4 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-brand-green/20 focus:border-brand-green outline-none transition pr-11"
                 required
               />
               <button
@@ -208,7 +208,7 @@ export default function Signup() {
           <div className="pt-3">
             <button
               type="submit"
-              className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#1a6649] rounded-xl hover:bg-[#1a6649]/90 transition duration-150 shadow-sm"
+              className="w-full py-3 px-6 text-sm font-semibold text-white bg-brand-green rounded-xl hover:bg-brand-green/90 transition duration-150 shadow-sm"
             >
               Create an account
             </button>
