@@ -32,14 +32,14 @@ export default function SuppliersSection() {
           {suppliers.map((sup) => (
             <div
               key={sup.id}
-              className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition"
+              className="bg-white rounded-2xl p-3 text-center border border-gray-100 shadow-sm hover:shadow-md transition"
             >
               {/* اللوجو */}
-              <div className="w-25 h-25 mx-auto mb-3 rounded-full overflow-hidden border border-gray-100 p-1 bg-gray-50">
+              <div className="w-full h-25 mx-auto mb-3 rounded-lg overflow-hidden border border-gray-100 p-1 bg-brand-gold/30">
                 <img
                   src={sup.logo}
                   alt={sup.name}
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover rounded-lg "
                 />
               </div>
 

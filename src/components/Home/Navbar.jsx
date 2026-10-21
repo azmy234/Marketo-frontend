@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import {
   Search,
   ShoppingCart,
@@ -11,7 +10,17 @@ import {
   X,
   UserPlus,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+const navLinks = [
+  { path: "/", label: "الرئيسية", end: true },
+  { path: "/Products", label: "المنتجات" },
+  { path: "/Vendors", label: "الموردين" },
+  { path: "/Offers", label: "العروض" },
+  { path: "/Brands", label: "الماركات" },
+  { path: "/EntitiesFactories", label: "الجهات والمصانع" },
+  { path: "/ContactUs", label: "تواصل معنا" },
+];
 
 export default function Navbar() {
   const [showHeader, setShowHeader] = useState(true);
@@ -85,12 +94,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Spacer لمنع اختفاء محتوى الصفحة خلف النافبار الثابت */}
-      <div className="h-37 md:h-33.75" />
+      {/* Spacer ديناميكي لمنع اختفاء محتوى الصفحة خلف النافبار الثابت */}
+      <div className="h-40 sm:h-45 md:h-47" />
 
       {/* 2. باقي الهيدر المتحرك */}
       <header
-        className={`fixed top-7.25 md:top-8.25 left-0 z-40 w-full font-cairo bg-white shadow-sm border-b border-gray-100 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-8.25 sm:top-9.25 md:top-9.5 left-0 z-40 w-full font-cairo bg-white shadow-sm border-b border-gray-100 transition-transform duration-300 ease-in-out ${
           showHeader ? "translate-y-0" : "translate-y-[-110%]"
         }`}
       >
@@ -108,7 +117,7 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 md:w-10 md:h-10 bg-brand-dark rounded-lg flex items-center justify-center text-brand-gold shrink-0">
                 <svg
                   width="20"
@@ -129,7 +138,7 @@ export default function Navbar() {
                   WHOLESALE GROCERY
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Search Bar - Desktop */}
@@ -178,24 +187,11 @@ export default function Navbar() {
               <UserPlus size={14} />
               <span>LogIn</span>
             </Link>
-            {/* <button
-              type="button"
-              aria-label="حسابي"
-              className="flex items-center gap-2 p-1"
-            >
-              <div className="bg-gray-100 p-2 md:p-2.5 rounded-full">
-                <User size={20} className="text-brand-dark md:w-5.5 md:h-5.5" />
-              </div>
-              <div className="hidden lg:flex flex-col text-xs leading-tight">
-                <span className="text-gray-500">تسجيل الدخول</span>
-                <span className="font-bold text-brand-dark">حسابي</span>
-              </div>
-            </button> */}
           </div>
         </div>
 
         {/* Search Bar - Mobile Version */}
-        <div className="px-3 pb-2 md:hidden">
+        <div className="px-3 pb-2.5 md:hidden">
           <div className="relative w-full flex items-center border border-gray-200 bg-gray-50 rounded-lg overflow-hidden">
             <input
               type="text"
@@ -223,49 +219,23 @@ export default function Navbar() {
               <span>جميع الأقسام</span>
             </button>
 
-            <nav className="flex items-center gap-8 text-sm font-semibold text-gray-700">
-              <a
-                href="/"
-                className="text-brand-dark font-bold border-b-2 border-brand-dark py-3"
-              >
-                الرئيسية
-              </a>
-              <a
-                href="/products"
-                className="hover:text-brand-dark transition py-3"
-              >
-                المنتجات
-              </a>
-              <a
-                href="/suppliers"
-                className="hover:text-brand-dark transition py-3"
-              >
-                الموردين
-              </a>
-              <a
-                href="/offers"
-                className="hover:text-brand-dark transition py-3"
-              >
-                العروض
-              </a>
-              <a
-                href="/brands"
-                className="hover:text-brand-dark transition py-3"
-              >
-                الماركات
-              </a>
-              <a
-                href="/factories"
-                className="hover:text-brand-dark transition py-3"
-              >
-                الجهات والمصانع
-              </a>
-              <a
-                href="/contact"
-                className="hover:text-brand-dark transition py-3"
-              >
-                تواصل معنا
-              </a>
+            <nav className="flex items-center gap-8 text-sm font-semibold">
+              {navLinks.map(({ path, label, end }) => (
+                <NavLink
+                  key={path}
+                  to={path}
+                  end={end}
+                  className={({ isActive }) =>
+                    `py-3 transition-colors ${
+                      isActive
+                        ? "text-brand-dark font-bold border-b-2 border-brand-dark"
+                        : "text-gray-700 hover:text-brand-dark"
+                    }`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
             </nav>
           </div>
         </div>
@@ -281,7 +251,7 @@ export default function Navbar() {
           />
 
           {/* Side Content */}
-          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between z-10 font-cairo">
+          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between z-10 font-cairo overflow-y-auto">
             <div>
               {/* Drawer Header */}
               <div className="p-4 bg-brand-dark text-white flex items-center justify-between">
@@ -300,57 +270,25 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Navigation Links */}
-              <nav className="flex flex-col p-4 space-y-1 text-sm font-bold text-gray-700">
-                <a
-                  href="/"
-                  className="p-2.5 rounded-lg bg-gray-100 text-brand-dark"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  الرئيسية
-                </a>
-                <a
-                  href="/products"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  المنتجات
-                </a>
-                <a
-                  href="/suppliers"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  الموردين
-                </a>
-                <a
-                  href="/offers"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  العروض
-                </a>
-                <a
-                  href="/brands"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  الماركات
-                </a>
-                <a
-                  href="/factories"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  الجهات والمصانع
-                </a>
-                <a
-                  href="/contact"
-                  className="p-2.5 rounded-lg hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  تواصل معنا
-                </a>
+              {/* Navigation Links - Mobile (عمودية ومضبوطة) */}
+              <nav className="flex flex-col p-4 space-y-1.5">
+                {navLinks.map(({ path, label, end }) => (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    end={end}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+                        isActive
+                          ? "bg-[#F8F1E7] text-brand-dark font-bold border-r-4 border-brand-gold"
+                          : "text-gray-700 hover:bg-gray-50 hover:text-brand-dark"
+                      }`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                ))}
               </nav>
             </div>
 
