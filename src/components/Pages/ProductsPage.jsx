@@ -970,7 +970,7 @@ export default function ProductsPage() {
   return (
     <div
       dir="rtl"
-      className="w-full bg-brand-bg min-h-[85vh] pb-8 px-4 md:px-12 pt-4"
+      className="w-full bg-brand-bg min-h-[85vh] pb-8 px-4 md:px-12 "
     >
       <div className="max-w-7xl mx-auto space-y-6">
         {/* عنوان الصفحة */}

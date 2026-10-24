@@ -22,7 +22,7 @@ const items = [
 
 export default function TopSalesSection() {
   return (
-    <section dir="rtl" className="w-full font-cairo  px-4 md:px-12">
+    <section dir="rtl" className="w-full font-cairo  px-4 md:px-12 pb-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="flex items-center justify-between mb-4">
