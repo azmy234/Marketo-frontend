@@ -110,7 +110,7 @@ export default function ProductDetailsPage() {
             الرئيسية
           </Link>
           <span>/</span>
-          <Link to="/Products" className="hover:text-brand-dark">
+          <Link to="/ProductsPage" className="hover:text-brand-dark">
             المنتجات
           </Link>
           <span>/</span>

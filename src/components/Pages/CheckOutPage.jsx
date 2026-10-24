@@ -130,7 +130,7 @@ const CheckoutPage = () => {
               <span>/</span>
 
               <Link
-                to="/cart"
+                to="/CartPage"
                 className="hover:text-brand-dark transition-colors"
               >
                 السلة

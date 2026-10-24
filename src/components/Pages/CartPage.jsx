@@ -93,7 +93,7 @@ const CartPage = () => {
           </div>
 
           <Link
-            to="/Products"
+            to="/ProductsPage"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-dark bg-white border border-[#D9BD96]/60 px-4 py-2.5 rounded-xl hover:bg-[#F8F1E7] transition-all duration-300 w-fit shadow-sm"
           >
             <ArrowRight size={15} className="text-brand-gold" />
@@ -293,7 +293,7 @@ const CartPage = () => {
               </p>
             </div>
             <Link
-              to="/Products"
+              to="/ProductsPage"
               className="inline-flex items-center gap-2 bg-brand-dark text-white text-xs font-bold py-3.5 px-8 rounded-xl hover:bg-brand-gold transition-colors shadow-md"
             >
               <span>استعراض قائمة المنتجات</span>
