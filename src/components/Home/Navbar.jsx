@@ -14,12 +14,12 @@ import { Link, NavLink } from "react-router-dom";
 
 const navLinks = [
   { path: "/", label: "الرئيسية", end: true },
-  { path: "/Products", label: "المنتجات" },
-  { path: "/Vendors", label: "الموردين" },
-  { path: "/Offers", label: "العروض" },
-  { path: "/Brands", label: "الماركات" },
-  { path: "/EntitiesFactories", label: "الجهات والمصانع" },
-  { path: "/ContactUs", label: "تواصل معنا" },
+  { path: "/ProductsPage", label: "المنتجات" },
+  { path: "/VendorsPage", label: "الموردين" },
+  { path: "/OffersPage", label: "العروض" },
+  { path: "/BrandsPage", label: "الماركات" },
+  { path: "/EntitiesFactoriesPage", label: "الجهات والمصانع" },
+  { path: "/ContactUsPage", label: "تواصل معنا" },
 ];
 
 export default function Navbar() {
@@ -166,17 +166,24 @@ export default function Navbar() {
               aria-label="سلة المشتريات"
               className="flex items-center gap-2 p-1"
             >
-              <div className="relative bg-gray-100 p-2 md:p-2.5 rounded-full">
-                <ShoppingCart
-                  size={20}
-                  className="text-brand-dark md:w-5.5 md:h-5.5"
-                />
-                <span className="absolute -top-1 -right-1 bg-brand-gold text-white text-[10px] md:text-[11px] font-bold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center">
-                  0
-                </span>
+              <div className="relative bg-gray-100 p-2 md:p-2.5 rounded-full hover:bg-brand-gold/30 ">
+                <Link to="CartPage">
+                  <ShoppingCart
+                    to="CartPage"
+                    size={20}
+                    className="text-brand-dark md:w-5.5 md:h-5.5"
+                  />
+                  <span className="absolute -top-1 -right-1 bg-brand-gold text-white text-[10px] md:text-[11px] font-bold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center">
+                    0
+                  </span>
+                </Link>
               </div>
-              <div className="hidden lg:flex flex-col text-xs">
-                <span className="text-gray-500">السلة</span>
+              <div className="hidden lg:flex flex-col text-xs ">
+                <Link to="CartPage">
+                  <span className="text-gray-500 hover:text-brand-gold ">
+                    السلة
+                  </span>
+                </Link>
               </div>
             </button>
 

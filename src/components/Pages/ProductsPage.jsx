@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Filter, RotateCcw } from "lucide-react";
+import { Search, Filter, RotateCcw, X } from "lucide-react";
 import ProductCard from "../Products/ProductCard"; // تأكد من مطابقة المسار الصحيح لديك
 
 // قائمة المنتجات الشاملة
@@ -947,9 +947,10 @@ const allProducts = [
   },
 ];
 
-export default function Products() {
+export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("الكل");
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false); // حالة فتح/إغلاق الفلتر على الموبايل
 
   // استخراج الأقسام الفريدة لتوليد خيارات الفلتر تلقائياً
   const categories = ["الكل", ...new Set(allProducts.map((p) => p.category))];
@@ -969,23 +970,39 @@ export default function Products() {
   return (
     <div
       dir="rtl"
-      className="w-full bg-brand-bg min-h-[85vh] pb-4 px-4 md:px-12"
+      className="w-full bg-brand-bg min-h-[85vh] pb-8 px-4 md:px-12 pt-4"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto space-y-6">
         {/* عنوان الصفحة */}
-        <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-1">
-            جميع المنتجات
-          </h1>
-          <p className="text-xs md:text-sm text-gray-600">
-            تصفح تشكيلة واسعة من منتجات الجملة المتاحة لمشروعك بأفضل الأسعار.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-1">
+              جميع المنتجات
+            </h1>
+            <p className="text-xs md:text-sm text-gray-600">
+              تصفح تشكيلة واسعة من منتجات الجملة المتاحة لمشروعك بأفضل الأسعار.
+            </p>
+          </div>
+
+          {/* زر إظهار الفلتر على الأجهزة المحمولة فقط */}
+          <button
+            type="button"
+            onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+            className="lg:hidden flex items-center justify-center gap-2 bg-brand-dark text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-sm"
+          >
+            <Filter size={16} className="text-brand-gold" />
+            <span>فلترة الأقسام ({selectedCategory})</span>
+          </button>
         </div>
 
         {/* تخطيط الصفحة: الفلتر على اليمين والمنتجات على اليسار */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
-          {/* 1. قسم الفلاتر الجانبي (على اليمين) */}
-          <aside className="lg:col-span-1 bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-6 sticky top-28">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start relative">
+          {/* 1. قسم الفلاتر الجانبي (يظهر تلقائياً على الشاشات الكبيرة، وكمودال/قائمة قابلة للطي على الموبايل) */}
+          <aside
+            className={`lg:col-span-1 bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-6 sticky top-28 transition-all duration-300 z-30 ${
+              isMobileFilterOpen ? "block" : "hidden lg:block"
+            }`}
+          >
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2">
                 <Filter size={18} className="text-brand-dark" />
@@ -993,37 +1010,54 @@ export default function Products() {
                   تصفية النتائج
                 </h2>
               </div>
-              {(selectedCategory !== "الكل" || searchTerm !== "") && (
+
+              <div className="flex items-center gap-3">
+                {(selectedCategory !== "الكل" || searchTerm !== "") && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory("الكل");
+                      setSearchTerm("");
+                    }}
+                    className="text-[11px] text-brand-gold hover:underline flex items-center gap-1"
+                  >
+                    <RotateCcw size={12} />
+                    إعادة تعيين
+                  </button>
+                )}
+                {/* زر إغلاق الفلتر على الموبايل */}
                 <button
                   type="button"
-                  onClick={() => {
-                    setSelectedCategory("الكل");
-                    setSearchTerm("");
-                  }}
-                  className="text-[11px] text-brand-gold hover:underline flex items-center gap-1"
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="lg:hidden text-gray-400 hover:text-brand-dark p-1"
                 >
-                  <RotateCcw size={12} />
-                  إعادة تعيين
+                  <X size={18} />
                 </button>
-              )}
+              </div>
             </div>
 
             {/* فلتر الأقسام عمودياً */}
             <div>
               <h3 className="text-xs font-bold text-gray-700 mb-3">الأقسام</h3>
-              <div className="flex flex-col space-y-1.5">
+              <div className="flex flex-col space-y-1.5 max-h-[60vh] lg:max-h-none overflow-y-auto">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     type="button"
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`w-full text-right px-3 py-2 rounded-xl text-xs font-semibold transition-colors flex items-center justify-between ${
+                    onClick={() => {
+                      setSelectedCategory(cat);
+                      setIsMobileFilterOpen(false); // إغلاق القائمة تلقائياً عند اختيار قسم على الموبايل
+                    }}
+                    className={`w-full text-right px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors flex items-center justify-between ${
                       selectedCategory === cat
-                        ? "bg-[#F8F1E7] text-brand-dark font-bold border-r-4 border-brand-gold"
+                        ? "bg-[#F8F1E7] text-brand-dark font-bold border-r-4 border-brand-gold shadow-xs"
                         : "text-gray-600 hover:bg-gray-50 hover:text-brand-dark"
                     }`}
                   >
                     <span>{cat}</span>
+                    {selectedCategory === cat && (
+                      <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -1040,23 +1074,23 @@ export default function Products() {
                   placeholder="ابحث عن منتج أو مورد..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full py-2.5 px-4 pr-10 text-xs md:text-sm border border-gray-200 rounded-xl outline-none bg-gray-50 focus:bg-white focus:border-brand-gold transition-colors"
+                  className="w-full py-3 px-4 pr-10 text-xs md:text-sm border border-gray-200 rounded-xl outline-none bg-gray-50 focus:bg-white focus:border-brand-gold transition-colors"
                 />
                 <Search size={18} className="absolute right-3 text-gray-400" />
               </div>
             </div>
 
-            {/* شبكة المنتجات باستخدام ProductCard */}
+            {/* شبكة المنتجات باستخدام ProductCard (تم ضبط أعمدة الموبايل لتكون 2 كولم مريحة ونظيفة) */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
                 {filteredProducts.map((item) => (
                   <ProductCard key={item.id} item={item} />
                 ))}
               </div>
             ) : (
               /* حالة عدم وجود نتائج */
-              <div className="text-center py-20 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                <p className="text-sm font-bold text-gray-500 mb-1">
+              <div className="text-center py-20 bg-white rounded-2xl border border-gray-100 shadow-sm space-y-2">
+                <p className="text-sm font-bold text-gray-500">
                   عذراً، لم نتمكن من العثور على منتجات مطابقة
                 </p>
                 <p className="text-xs text-gray-400">

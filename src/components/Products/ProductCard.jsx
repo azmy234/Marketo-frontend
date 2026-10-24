@@ -42,7 +42,7 @@ export default function ProductCard({ item }) {
 
   return (
     <div className="group bg-white rounded-xl p-3 border border-[#D9BD96]/60 shadow-sm flex flex-col justify-between relative transition-all duration-300 hover:border-brand-gold hover:shadow-md">
-      {/* Discount Badge (يظهر فقط إذا كان المنتج يحتوي على خصم) */}
+      {/* Discount Badge */}
       {item.discount && (
         <span className="absolute top-3 right-3 z-10 bg-brand-gold text-white text-[11px] font-bold px-2 py-1 rounded-md">
           {item.discount}
@@ -87,7 +87,7 @@ export default function ProductCard({ item }) {
           <span className="font-semibold text-brand-gold">{item.supplier}</span>
         </p>
 
-        {/* Pack Size (اختياري) */}
+        {/* Pack Size */}
         {item.pack && (
           <p className="text-[11px] text-[#6B756B] mb-1">{item.pack}</p>
         )}
@@ -105,22 +105,22 @@ export default function ProductCard({ item }) {
           )}
         </div>
 
-        {/* MOQ (اختياري) */}
+        {/* MOQ */}
         {item.moq && (
           <p className="text-[10px] text-[#6B756B] mb-2">{item.moq}</p>
         )}
       </div>
 
-      {/* Quantity + Total */}
-      <div className="flex items-center justify-between gap-1 mb-3">
+      {/* Quantity + Total (تحت بعض على الموبايل flex-col، وبجانب بعض على الشاشات الكبيرة sm:flex-row) */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3 bg-[#FBF9F5] sm:bg-transparent p-2 sm:p-0 rounded-xl">
         {/* Quantity Controls */}
-        <div className="flex items-center gap-0.5 border border-[#D9BD96] bg-white rounded-lg p-0.5">
+        <div className="flex items-center justify-between sm:justify-start gap-0.5 border border-[#D9BD96] bg-white rounded-lg p-0.5 w-full sm:w-auto">
           <button
             type="button"
             onClick={() => updateQuantity(-1)}
             disabled={currentQty <= 1}
             aria-label="تقليل الكمية"
-            className="w-6 h-7 flex items-center justify-center rounded text-brand-dark hover:bg-[#F3E5D0] disabled:opacity-40 transition-colors"
+            className="w-7 h-7 sm:w-6 sm:h-7 flex items-center justify-center rounded text-brand-dark hover:bg-[#F3E5D0] disabled:opacity-40 transition-colors"
           >
             <Minus size={12} />
           </button>
@@ -134,21 +134,21 @@ export default function ProductCard({ item }) {
             onChange={handleQuantityChange}
             onBlur={handleBlur}
             aria-label={`كمية ${item.title}`}
-            className="w-12 min-w-0 text-center text-xs font-bold text-brand-dark outline-none bg-transparent"
+            className="w-full sm:w-12 min-w-0 text-center text-xs font-bold text-brand-dark outline-none bg-transparent"
           />
 
           <button
             type="button"
             onClick={() => updateQuantity(1)}
             aria-label="زيادة الكمية"
-            className="w-6 h-7 flex items-center justify-center rounded bg-[#F3E5D0] text-brand-dark hover:bg-[#D9BD96] transition-colors"
+            className="w-7 h-7 sm:w-6 sm:h-7 flex items-center justify-center rounded bg-[#F3E5D0] text-brand-dark hover:bg-[#D9BD96] transition-colors"
           >
             <Plus size={12} />
           </button>
         </div>
 
         {/* Total */}
-        <div className="text-left min-w-0">
+        <div className="flex sm:block items-center justify-between text-left min-w-0 px-1 sm:px-0">
           <p className="text-[10px] text-[#6B756B]">الإجمالي</p>
           <p className="text-xs font-extrabold text-brand-gold whitespace-nowrap">
             {(item.price * currentQty).toFixed(2)} ج.م
@@ -160,7 +160,7 @@ export default function ProductCard({ item }) {
       <button
         type="button"
         onClick={handleAddToCart}
-        className="bg-brand-dark text-white text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 w-full hover:bg-brand-gold transition-colors duration-300"
+        className="bg-brand-dark text-white text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 w-full hover:bg-brand-gold transition-colors duration-300 shadow-sm"
       >
         <ShoppingCart size={14} />
         <span>أضف للسلة</span>

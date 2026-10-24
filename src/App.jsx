@@ -4,12 +4,13 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Home/Navbar";
 import Footer from "./components/Home/Footer";
 
-import Products from "./components/Pages/Products";
-import Vendors from "./components/Pages/Vendors";
-import Offers from "./components/Pages/Offers";
-import Brands from "./components/Pages/Brands";
-import EntitiesFactories from "./components/Pages/EntitiesFactories";
-import ContactUs from "./components/Pages/ContactUs";
+import ProductsPage from "./components/Pages/ProductsPage";
+import VendorsPage from "./components/Pages/VendorsPage";
+import OffersPage from "./components/Pages/OffersPage";
+import BrandsPage from "./components/Pages/BrandsPage";
+import EntitiesFactoriesPage from "./components/Pages/EntitiesFactoriesPage";
+import ContactUsPage from "./components/Pages/ContactUsPage";
+import CheckOutPage from "./components/Pages/CheckOutPage";
 
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
@@ -18,6 +19,7 @@ import ForgotPassword from "./components/Auth/ForgotPassword";
 import ProductDetails from "./components/Products/ProductDetails";
 
 import ScrollToTop from "./components/Common/ScrollToTop";
+import CartPage from "./components/Pages/CartPage";
 
 // مكون فرعي للتحكم في إظهار أو إخفاء النافبار والفوتر حسب المسار الحالي
 function AppContent() {
@@ -37,12 +39,17 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/Products" element={<Products />} />
-        <Route path="/Vendors" element={<Vendors />} />
-        <Route path="/Offers" element={<Offers />} />
-        <Route path="/Brands" element={<Brands />} />
-        <Route path="/EntitiesFactories" element={<EntitiesFactories />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/ProductsPage" element={<ProductsPage />} />
+        <Route path="/VendorsPage" element={<VendorsPage />} />
+        <Route path="/OffersPage" element={<OffersPage />} />
+        <Route path="/BrandsPage" element={<BrandsPage />} />
+        <Route
+          path="/EntitiesFactoriesPage"
+          element={<EntitiesFactoriesPage />}
+        />
+        <Route path="/ContactUsPage" element={<ContactUsPage />} />
+        <Route path="/CheckOutPage" element={<CheckOutPage />} />
+        <Route path="/CartPage" element={<CartPage />} />
 
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
