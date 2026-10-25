@@ -16,7 +16,7 @@ const navItems = [
   { path: "Profile", label: "Profile", icon: User },
   { path: "Orders", label: "Orders", icon: Package },
   { path: "ReturnsWallet", label: "Returns Wallet", icon: Wallet },
-  { path: "Wishlist", label: "Wishlist", icon: Heart }, // تأكدنا من مطابقة الاسم هنا
+  { path: "Favorite", label: "Favorite", icon: Heart }, // تأكدنا من مطابقة الاسم هنا
   { path: "Addresses", label: "Addresses", icon: MapPin },
   { path: "Reviews", label: "Reviews", icon: Star },
   { path: "Refunds", label: "Refunds", icon: RotateCcw },
@@ -40,7 +40,7 @@ const CustomerPage = () => {
           {/* حاوية الـ Scroll مع تلميح بصري للأطراف في الموبايل */}
           <div className="relative">
             {/* تأثير ظل خفيف على اليمين يوضح وجود محتوى إضافي (يظهر في الموبايل فقط) */}
-            <div className="absolute right-0 top-0 bottom-1 w-6 bg-gradient-to-l from-white pointer-events-none md:hidden z-10"></div>
+            <div className="absolute right-0 top-0 bottom-1 w-6 bg-linear-to-l from-white pointer-events-none md:hidden z-10"></div>
 
             <div className="flex md:flex-col overflow-x-auto gap-2 md:gap-1 no-scrollbar pb-2 md:pb-0 items-center md:items-stretch scroll-smooth">
               {navItems.map(({ path, label, icon: Icon, end }) => (
