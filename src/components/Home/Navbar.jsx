@@ -193,9 +193,13 @@ export default function Navbar() {
             {isLoggedIn ? (
               <Link
                 to="/CustomerPage"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#F8F1E7] border border-[#D9BD96]/50 px-3.5 py-2 text-xs font-bold text-brand-dark transition-all hover:bg-brand-gold shadow-xs"
+                className="inline-flex items-center gap-1 rounded-md bg-brand-gold px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark"
               >
-                <User size={15} className="text-brand-gold shrink-0" />
+                <User
+                  size={15}
+                  strokeWidth={3}
+                  className="text-white font-bold  shrink-0"
+                />
                 <span>حسابي</span>
               </Link>
             ) : (
@@ -203,7 +207,11 @@ export default function Navbar() {
                 to="/Login"
                 className="inline-flex items-center gap-1.5 rounded-md bg-brand-gold px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark"
               >
-                <UserPlus size={14} />
+                <UserPlus
+                  size={14}
+                  strokeWidth={3}
+                  className="text-white font-bold  shrink-0"
+                />
                 <span>LogIn</span>
               </Link>
             )}
