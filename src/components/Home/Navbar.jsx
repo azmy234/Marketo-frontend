@@ -9,6 +9,7 @@ import {
   ChevronDown,
   X,
   UserPlus,
+  User,
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -25,6 +26,8 @@ const navLinks = [
 export default function Navbar() {
   const [showHeader, setShowHeader] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -187,13 +190,23 @@ export default function Navbar() {
               </div>
             </button>
 
-            <Link
-              to="/login"
-              className="inline-flex items-center gap-1.5 rounded-md bg-brand-gold px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark"
-            >
-              <UserPlus size={14} />
-              <span>LogIn</span>
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                to="/CustomerPage"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#F8F1E7] border border-[#D9BD96]/50 px-3.5 py-2 text-xs font-bold text-brand-dark transition-all hover:bg-brand-gold shadow-xs"
+              >
+                <User size={15} className="text-brand-gold shrink-0" />
+                <span>حسابي</span>
+              </Link>
+            ) : (
+              <Link
+                to="/Login"
+                className="inline-flex items-center gap-1.5 rounded-md bg-brand-gold px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark"
+              >
+                <UserPlus size={14} />
+                <span>LogIn</span>
+              </Link>
+            )}
           </div>
         </div>
 

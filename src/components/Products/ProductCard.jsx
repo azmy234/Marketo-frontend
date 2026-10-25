@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, Star, Plus, Minus } from "lucide-react";
+import { ShoppingCart, Plus, Minus, Heart } from "lucide-react";
 
 export default function ProductCard({ item }) {
   const [quantity, setQuantity] = useState(1);
@@ -56,11 +56,11 @@ export default function ProductCard({ item }) {
         aria-label={isFavorite ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}
         className={`absolute top-3 left-3 z-10 rounded-full p-1.5 transition-colors ${
           isFavorite
-            ? "bg-[#F3E5D0] text-brand-gold"
+            ? "bg-[#F3E5D0]/70 text-red-600"
             : "bg-[#F8F1E7] text-brand-dark hover:bg-[#F3E5D0]"
         }`}
       >
-        <Star size={16} fill={isFavorite ? "currentColor" : "none"} />
+        <Heart size={23} fill={isFavorite ? "currentColor" : "none"} />
       </button>
 
       {/* Product Image */}

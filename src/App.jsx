@@ -20,6 +20,16 @@ import ProductDetails from "./components/Products/ProductDetails";
 
 import ScrollToTop from "./components/Common/ScrollToTop";
 import CartPage from "./components/Pages/CartPage";
+import CustomerPage from "./components/Pages/CustomerPage";
+import Dashboard from "./components/Customer/Dashboard";
+import Profile from "./components/Customer/Profile";
+import Orders from "./components/Customer/Orders";
+import ReturnsWallet from "./components/Customer/ReturnsWallet";
+import Favorite from "./components/Customer/Favorite";
+import Addresses from "./components/Customer/Addresses";
+import Reviews from "./components/Customer/Reviews";
+import Refunds from "./components/Customer/Refunds";
+import Claims from "./components/Customer/Claims";
 
 // مكون فرعي للتحكم في إظهار أو إخفاء النافبار والفوتر حسب المسار الحالي
 function AppContent() {
@@ -50,6 +60,19 @@ function AppContent() {
         <Route path="/ContactUsPage" element={<ContactUsPage />} />
         <Route path="/CheckOutPage" element={<CheckOutPage />} />
         <Route path="/CartPage" element={<CartPage />} />
+
+        <Route path="/CustomerPage" element={<CustomerPage />}>
+          <Route path="Profile" element={<Profile />} />
+          <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="Orders" element={<Orders />} />
+          <Route path="ReturnsWallet" element={<ReturnsWallet />} />
+          <Route path="Favorite" element={<Favorite />} />
+          <Route path="Addresses" element={<Addresses />} />
+          <Route path="Reviews" element={<Reviews />} />
+          <Route path="Refunds" element={<Refunds />} />
+          <Route path="ReturnsWallet" element={<ReturnsWallet />} />
+          <Route path="claims" element={<Claims />} />
+        </Route>
 
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
