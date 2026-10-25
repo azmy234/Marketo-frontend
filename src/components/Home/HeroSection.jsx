@@ -14,8 +14,7 @@ export default function HeroSection() {
         />
 
         {/* طبقة التدرج اللوني - متوافقة مع Tailwind الحديثة */}
-        <div className="absolute inset-0 bg-linear-to-l from-[#1e3a2b] via-[#1e3a2b] via-40% to-transparent" />
-
+        <div className="absolute inset-0 bg-linear-to-b md:bg-linear-to-l from-[#1e3a2b]/90 via-[#1e3a2b]/85 to-transparent md:from-[#1e3a2b] md:via-[#1e3a2b] md:via-40% md:to-transparent" />
         {/* محتوى الهيدر والإنترو (مع مسافة أمان جانبية) */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-12 flex">
           <div className="w-full md:w-1/2 py-8 text-right text-white">
